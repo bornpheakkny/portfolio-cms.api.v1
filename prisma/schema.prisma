@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("admin")
+  tokenVersion Int      @default(0) // bump to invalidate all refresh tokens
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+/// Single-row table — your personal info
+model Profile {
+  id        String   @id @default(cuid())
+  name      String
+  headline  String
+  bio       String
+  location  String   @default("")
+  email     String
+  avatarUrl String?
+  resumeUrl String?
+  socials   Json     @default("{}")
+  updatedAt DateTime @updatedAt
+}
+
+/// Technologies — rendered as planets orbiting you
+model Skill {
+  id          String @id @default(cuid())
+  name        String @unique
+  category    String // core | framework | styling | testing | tooling | backend
+  level       Int    @default(80)
+  iconUrl     String?
+  color       String @default("#61dafb")
+  description String @default("")
+  orbitOrder  Int    @default(0)
+
+  @@index([category, orbitOrder])
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  summary   String
+  content   String   @default("")
+  coverUrl  String?
+  gallery   String[] @default([])
+  techStack String[] @default([])
+  liveUrl   String?
+  repoUrl   String?
+  featured  Boolean  @default(false)
+  published Boolean  @default(false)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([published, order])
+}
+
+model Experience {
+  id          String    @id @default(cuid())
+  company     String
+  role        String
+  location    String    @default("")
+  startDate   DateTime
+  endDate     DateTime?
+  description String    @default("")
+  techStack   String[]  @default([])
+  order       Int       @default(0)
+}
+
+model Education {
+  id        String    @id @default(cuid())
+  school    String
+  degree    String
+  field     String    @default("")
+  startDate DateTime
+  endDate   DateTime?
+  order     Int       @default(0)
+}
+
+/// Every file uploaded to Cloudinary through the CMS
+model Media {
+  id        String   @id @default(cuid())
+  publicId  String   @unique
+  url       String
+  width     Int?
+  height    Int?
+  format    String?
+  bytes     Int?
+  alt       String   @default("")
+  createdAt DateTime @default(now())
+}
+
+/// Contact form submissions
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
