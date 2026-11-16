@@ -17,7 +17,7 @@ Schema change: edit `prisma/schema.prisma` → `pnpm db:migrate --name what-chan
 ## Deploy to Render
 New → **Blueprint** → this repo (uses `render.yaml`). Or a Web Service with:
 - Build: `corepack enable && pnpm install --frozen-lockfile && pnpm build && pnpm db:deploy`
-- Start: `pnpm start` · Health check: `/health`
+- Start: `pnpm start:prod` · Health check: `/health`  (`pnpm start` runs the dev watcher)
 - Env: everything in `.env.example`, plus `NODE_ENV=production`
   - `CORS_ORIGINS=https://<portfolio>.vercel.app,https://<cms>.vercel.app`
   - `PORTFOLIO_REVALIDATE_URL=https://<portfolio>.vercel.app/api/revalidate`
