@@ -55,7 +55,8 @@ model Project {
   gallery   String[] @default([])
   techStack String[] @default([])
   liveUrl   String?
-  repoUrl   String?
+  /// Source repositories: [{ label, url }], e.g. Portfolio, CMS, API
+  repos     Json     @default("[]")
   featured  Boolean  @default(false)
   published Boolean  @default(false)
   order     Int      @default(0)

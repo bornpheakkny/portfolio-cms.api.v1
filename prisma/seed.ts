@@ -65,7 +65,11 @@ async function main() {
         "A monorepo with three apps: a Next.js portfolio (Vercel), a React CMS (Vercel) and an " +
         "Express + Prisma API (Render) backed by Neon Postgres, with media on Cloudinary.",
       techStack: ["Next.js", "React", "TypeScript", "Node.js", "Prisma", "PostgreSQL"],
-      repoUrl: "https://github.com/bornpheakkny/portfolio.tech.v1",
+      repos: [
+        { label: "Portfolio (Next.js)", url: "https://github.com/bornpheakkny/portfolio.tech.v1" },
+        { label: "CMS (React + Vite)", url: "https://github.com/bornpheakkny/cms.v1" },
+        { label: "API (Express + Prisma)", url: "https://github.com/bornpheakkny/portfolio-cms.api.v1" },
+      ],
       featured: true,
       published: true,
     },
