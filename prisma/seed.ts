@@ -31,7 +31,7 @@ async function main() {
         email,
         socials: {
           linkedin: "https://www.linkedin.com/in/pheakkorny-born-15259b249",
-          github: "https://github.com/Pheakkorny",
+          github: "https://github.com/bornpheakkny",
         },
       },
     });
@@ -65,7 +65,7 @@ async function main() {
         "A monorepo with three apps: a Next.js portfolio (Vercel), a React CMS (Vercel) and an " +
         "Express + Prisma API (Render) backed by Neon Postgres, with media on Cloudinary.",
       techStack: ["Next.js", "React", "TypeScript", "Node.js", "Prisma", "PostgreSQL"],
-      repoUrl: "https://github.com/Pheakkorny/portfolio.tech.v1",
+      repoUrl: "https://github.com/bornpheakkny/portfolio.tech.v1",
       featured: true,
       published: true,
     },

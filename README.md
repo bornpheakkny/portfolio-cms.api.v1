@@ -1,6 +1,6 @@
 # portfolio-cms.api.v1
 
-REST API for my portfolio. Serves public content to [portfolio.tech.v1](https://github.com/Pheakkorny/portfolio.tech.v1) and powers the admin [cms.v1](https://github.com/Pheakkorny/cms.v1).
+REST API for my portfolio. Serves public content to [portfolio.tech.v1](https://github.com/bornpheakkny/portfolio.tech.v1) and powers the admin [cms.v1](https://github.com/bornpheakkny/cms.v1).
 
 **Stack:** Express 5 · Prisma 7 · Neon Postgres · Cloudinary · zod · JWT — deployed on **Render**.
 
